@@ -1,43 +1,61 @@
 package com.gl.main;
-
 import java.util.Scanner;
 
-import com.gl.interfaces.Credentials;
-import com.gl.model.Employee;
-import com.gl.service.CredentialService;
-
 public class DriverClass {
-       public static void main(String[] args) {
-    	   Employee emp = new Employee("Harsh","Singh");
-    	   Credentials cred = new CredentialService();
-    	   Scanner sc=new Scanner(System.in);
-    	   System.out.println("1.Technical");
-    	   System.out.println("1.Human Resource");
-    	   System.out.println("1.Admin");
-    	   System.out.println("1.Legal");
-    	   System.out.println("Select Department ");
-           int dept = sc.nextInt();
-           
-           switch(dept) {
-           case 1:
-        	   emp.setEmail(cred.generateEmailAddress(emp.getFirstName(), emp.getLastName(), "tech"));
-        	   break;
-           case 2:
-        	   emp.setEmail(cred.generateEmailAddress(emp.getFirstName(), emp.getLastName(), "hr"));
-        	   break;
-           case 3:
-        	   emp.setEmail(cred.generateEmailAddress(emp.getFirstName(), emp.getLastName(), "ad"));
-        	   break;
-           case 4:
-        	   emp.setEmail(cred.generateEmailAddress(emp.getFirstName(), emp.getLastName(), "legal"));
-        	   break;
-           default :
-        	   System.out.println("You have entered wrong choice");
-           }
-           emp.setPassword(cred.generatePassword());
-           cred.showCredentials(emp);
-           
-           sc.close();
-           
-       }
-}
+	
+	
+			public static void main(String[] args) {
+			
+
+				System.out.println("Enter the size of array");
+				
+				Scanner sc = new Scanner(System.in);
+				int size = sc.nextInt();
+				
+				System.out.println("Enter the  " + size + " elements");
+				
+				int[] array = new int[size];
+				
+				for(int i = 0; i < size; i++) {
+					array[i] = sc.nextInt();
+				}
+				
+				System.out.println("Enter the total number of target that needs to be achived");
+				int numberOfTarget = sc.nextInt();
+				 if(numberOfTarget == 0)
+				 {
+					 System.out.println("enter more than zero");
+				 }
+				
+				while(numberOfTarget > 0)
+				{
+					int flag = 0;
+				System.out.println("Enter the value of target");
+				int target = sc.nextInt();
+				
+				long sum = 0;
+				
+				for(int i = 0;i < size;i++)
+				{
+				    sum = sum + array[i];
+				    if(sum >= target)
+				    {
+				    	System.out.println("Target achived after " + (i+1) + " transactions");
+				    	flag = 1;
+				    break;
+				    }
+				}
+				if(flag == 0)
+				{
+				   System.out.println("Given target is not acvhived");
+				}
+				
+				   numberOfTarget--;
+				}
+					sc.close();
+				
+	  
+	}
+	}
+
+
