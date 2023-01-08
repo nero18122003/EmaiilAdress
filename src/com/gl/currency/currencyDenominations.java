@@ -30,20 +30,14 @@ public class currencyDenominations {
 	
 	private static void notesCountImplementation(int []array,int totalAmount){
 		int[] noteCounter = new int[array.length];
-		// notes = 10, 52, 89 ,1
-		// notes = 89, 52, 10, 1 sorting in the decreasing order
-		//900
-		//notes 900/89 = 10 89:10
-		//amount = 900-890=10
-		//10/10 = 1
-		//0
+		
 		
 		
 			for (int i = 0; i < array.length; i++) {
 				if (totalAmount >= array[i]) {
 					noteCounter[i] = totalAmount / array[i];
 					totalAmount = totalAmount % array[i];
-//					amount = amount - noteCounter[i] * notes[i];
+
 				}
 			}
 			if (totalAmount > 0) {
